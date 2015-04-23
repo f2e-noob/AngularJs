@@ -5,12 +5,37 @@
 		<link href="css/style.css" type="text/css" rel="stylesheet">
 		<link href="css/bootstrap.css" type="text/css">
 	<body>
-		<div ng-app="">
+		<!--ng-app 指令初始化一个 AngularJS 应用程序。--><!--ng-init 初始化应用程序数据 -->
+		<!--将应用程序的数据类型值通过html输出-->
+		<!--ng-model 把应用程序数据绑定到html元素上-->
+		<!--方法二 将应用程序的数据类型值通过html输出-->
+		<!--<div ng-app="" ng-init="" >
  			<p>在输入框中尝试输入:</p>
-			<p>
-				姓名:fdsafds
-				<input type="text" ng-model="name"></p>
+			<p>姓名: <input type="text" ng-model="name"></p>
 			<p ng-bind="name"></p>
+			<p>{{ name }}</p>
+ 		</div> -->
+ 		<!-- <div ng-app="" ng-init="q=1;n=8">
+ 			<h2>价格计算</h2>
+ 			价格<input type="number" ng-model="q" class="form-control">
+ 			数量<input type="number" ng-model="n" class="form-control">
+ 			<p><input type="text"  value="{{ q * n }}"></p>
+ 			<p>{{ q * n }}</p>
+ 			<p ng-bind="q * n"></p>
+ 		</div> -->
+ 		<!-- <p>ng-repeat 指令会重复一个 HTML 元素：</p>
+ 		<div ng-app="" ng-init="name=['1','2','3','4','5','6']">
+ 			<ul>
+ 				<li ng-repeat="x in name">
+ 					{{ x }}
+ 				</li>
+ 			</ul>
+ 		</div> -->
+ 		<p>ng-repeat 可用于一个对象数组上面</p>
+ 		<div ng-app="" ng-init="names=[{name:'xia',job:'IT'},{name:'wang',job:'HR'},{name:'huang',job:'DR'}]">
+ 			<p ng-repeat="x in names">
+ 				<span>{{ x.name +', '+ x.job}}</span>
+ 			</p>
  		</div>
  		<script src="js/angular.js"></script>
 	</body>
