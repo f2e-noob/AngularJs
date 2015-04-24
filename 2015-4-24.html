@@ -48,11 +48,25 @@
 	 		 -->
 
 	 		<p>AngularJS 控制器</p>
-	 		<div ng-app="" ng-controller="personalController">
-	 			姓<input type="text" ng-model="personal.fristName">
-	 			名<input type="text" ng-model="personal.lastName">
-	 			<p>{{personal.fristName+ ", " personal.lastName}}</p>
+	 		<div ng-app="" ng-controller="aa">
+	 			姓<input type="text" ng-model="ss.fristName">
+	 			名<input type="text" ng-model="ss.lastName">
+	 			<!-- <p>{{ ss.firstName + ", " + ss.lastName}}</p> -->
+	 			<p>{{ fullname() }}</p>
 	 		</div>
+	 		<script type="text/javascript">
+	 			function aa($scope){
+	 				$scope.ss={
+	 					fristName: "xia",
+	 					lastName: "qing",
+	 				}
+	 				$scope.fullname = function(){
+	 					var x
+	 					x = $scope.ss;
+	 					return x.fristName + ", " + x.lastName;
+	 				};
+	 			}
+	 		</script>
 	 		<script src="js/angular.js"></script>
 		</div>
 	</body>
