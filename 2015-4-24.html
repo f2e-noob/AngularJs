@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<link href="css/bootstrap.css" type="text/css" rel="stylesheet">
 		<link href="css/style.css" type="text/css" rel="stylesheet">
+	</head>
 	<body>
 		<div class="container">
 			<!--ng-app 指令初始化一个 AngularJS 应用程序。--><!--ng-init 初始化应用程序数据 -->
@@ -54,8 +55,8 @@
 	 		    <p>{{ ss.firstName + ", " + ss.lastName}}</p>
 	 			<p>{{ fullname() }}</p>
 	 		</div> --> 
-	 		<p>AngularJS 过滤器</p>
-	 		<!-- <div ng-app="" ng-controller="aa">
+	 		<!-- <p>AngularJS 过滤器</p>
+	 		<div ng-app="" ng-controller="aa">
 	 			姓<input type="text" ng-model="ss.fristName">
 	 			名<input type="text" ng-model="ss.lastName">
 	 			<p>{{ ss.firstName + ", " + ss.lastName}}</p>
@@ -73,24 +74,40 @@
 					</li>
 				</ul>
 			</div> -->
-			<div ng-app="" ng-controller="namesController">
+			<!-- <div ng-app="" ng-controller="namesController">
 				<label>输入搜索条件：</label>
-				<input type="text" ng-model="name">
 				<ul>
-					<li ng-repeat="x in names | filter:name | orderBy:'job'">
-						{{ (x.name | uppercase) + ", " + x.job }}
+					<li ng-repeat="x in names">
+						{{ (x.Name + ", " + x.City }}
 					</li>
 				</ul>
+			</div> -->
+			<!-- <div ng-app="" ng-controller="customersController"> 
+				<ul>
+				  <li ng-repeat="x in names">
+				    {{ x.Name + ', ' + x.Country }}
+				  </li>
+				</ul>
+			</div> -->
+			<p>AngularJS 表格</p>
+			<div ng-app="" ng-controller="customersController"> 
+
+			<table>
+			  <tr ng-repeat="x in names">
+			    <td>{{ x.Name }}</td>
+			    <td>{{ x.Country }}</td>
+			  </tr>
+			</table>
+
 			</div>
-	 		<script type="text/javascript">
-	 			function namesController($scope){
-	 				$scope.names=[
-	 					{name:'xia',job:'xx'},
-	 					{name:'wang',job:'www'},
-	 					{name:'huang',job:'hhh'},
-	 				]
-	 			}
-	 		</script>
+
+			<script>
+			function customersController($scope,$http) {
+			  $http.get("http://www.w3cschool.cc/try/angularjs/data/Customers_JSON.php")
+			  .success(function(response) {$scope.names = response;});
+			}
+			</script>
+			 
 	 		<script src="js/angular.js"></script>
 		</div>
 	</body>
