@@ -48,11 +48,19 @@
 	 		 -->
 
 	 		<p>AngularJS 控制器</p>
-	 		<div ng-app="" ng-controller="personalController">
-	 			姓<input type="text" ng-model="personal.fristName">
-	 			名<input type="text" ng-model="personal.lastName">
-	 			<p>{{personal.fristName+ ", " personal.lastName}}</p>
+	 		<div ng-app="" ng-controller="contController">
+				姓<input type="text" ng-model="person.firstName">
+	 			名<input type="text" ng-model="person.lastName">
+	 			<p>{{ person.firstName + ", " + person.lastName }}</p>
 	 		</div>
+	 		<script type="text/javascript">
+	 		 	function contController($scope){
+	 		 		$scope.person = {
+	 		 			firstName:"xia",
+	 		 			lastName:"qing"
+	 		 		}
+	 		 	};
+	 		</script>
 	 		<script src="js/angular.js"></script>
 		</div>
 	</body>

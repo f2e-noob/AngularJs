@@ -89,26 +89,55 @@
 				  </li>
 				</ul>
 			</div> -->
-			<p>AngularJS 表格</p>
+			<!-- <p>AngularJS 表格</p>
 			<div ng-app="" ng-controller="customersController"> 
-
-			<table>
-			  <tr ng-repeat="x in names">
-			    <td>{{ x.Name }}</td>
-			    <td>{{ x.Country }}</td>
-			  </tr>
-			</table>
-
+				<table>
+				  <tr ng-repeat="x in names">
+				    <td>{{ x.Name }}</td>
+				    <td>{{ x.Country }}</td>
+				  </tr>
+				</table>
 			</div>
-
-			<script>
-			function customersController($scope,$http) {
-			  $http.get("http://www.w3cschool.cc/try/angularjs/data/Customers_JSON.php")
-			  .success(function(response) {$scope.names = response;});
-			}
+			<p>AngularJS SQL</p>
+			<p>PHP 读取 MySQL 数据代码</p>
+			 -->
+			<!-- <p>AngularJS HTML DOM</p>
+			<div ng-app="" ng-init="a=true">
+				<button ng-disabled="a">点击我！</button>
+				<input type="checkbox" ng-model="a">
+				<p>{{ button }}</p>
+			</div> -->
+			<!-- <div ng-app="">
+				<p ng-show="true">我是可见的。</p>
+				<p ng-show="false">我是不可见的。</p>
+			</div> -->
+			<!-- <p>angularJs事件</p>
+			<div ng-app="" ng-controller="acountController">
+				<button ng-click="count= count + 1">点击</button>
+				<p>{{ count }}</p>
+			</div> -->
+			<p>隐藏 HTML 元素</p>
+			<div ng-app="" ng-controller="contController">
+				<button ng-click="toggle()">隐藏/显示</button><br/><br/>
+				<p ng-hide="cont">
+					姓<input type="text" ng-model="person.fristName">
+					名<input type="text" ng-model="person.lastName">
+					姓名{{ person.fristName + ', ' +  person.lastName }}				
+				</p>
+			</div>
+			<script type="text/javascript">
+				function contController($scope) {
+				    $scope.person = {
+				        firstName: "John",
+				        lastName: "Doe"
+				    };
+				    $scope.cont= false;
+				    $scope.toggle =function(){
+				    	$scope.cont=!$scope.cont;
+				    } 
+				  }
 			</script>
-			 
-	 		<script src="js/angular.js"></script>
+			<script type="text/javascript" src="js/angular.js"></script>
 		</div>
 	</body>
 </html>
