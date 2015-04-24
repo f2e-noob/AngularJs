@@ -116,7 +116,7 @@
 				<button ng-click="count= count + 1">点击</button>
 				<p>{{ count }}</p>
 			</div> -->
-			<p>隐藏 HTML 元素</p>
+			<!-- <p>隐藏 HTML 元素</p>
 			<div ng-app="" ng-controller="contController">
 				<button ng-click="toggle()">隐藏/显示</button><br/><br/>
 				<p ng-hide="cont">
@@ -124,20 +124,27 @@
 					名<input type="text" ng-model="person.lastName">
 					姓名{{ person.fristName + ', ' +  person.lastName }}				
 				</p>
+			</div> -->
+			<!-- <p>显示 HTML 元素</p>
+			<div ng-app="" ng-controller="contController">
+				<button ng-click="toggle()">隐藏/显示</button><br/><br/>
+				<p ng-show="cont">
+					姓<input type="text" ng-model="person.fristName">
+					名<input type="text" ng-model="person.lastName">
+					姓名{{ person.fristName + ', ' +  person.lastName }}				
+				</p>
+			</div> -->
+			<p>AngularJS 模块</p>
+			<div ng-app="myApp" ng-controller="myCtrl">
+				<ul>
+					<li ng-repeat="x in persons">
+						{{ x.firstName + ", " + x.lastName }}
+					</li>
+				</ul>
 			</div>
-			<script type="text/javascript">
-				function contController($scope) {
-				    $scope.person = {
-				        firstName: "John",
-				        lastName: "Doe"
-				    };
-				    $scope.cont= false;
-				    $scope.toggle =function(){
-				    	$scope.cont=!$scope.cont;
-				    } 
-				  }
-			</script>
 			<script type="text/javascript" src="js/angular.js"></script>
+			<script type="text/javascript" src="js/myApp.js"></script>
+			<script type="text/javascript" src="js/myCtrl.js"></script>
 		</div>
 	</body>
 </html>
