@@ -47,24 +47,48 @@
 	 		</div>
 	 		 -->
 
-	 		<p>AngularJS 控制器</p>
+	 		<!-- <p>AngularJS 控制器</p>
 	 		<div ng-app="" ng-controller="aa">
 	 			姓<input type="text" ng-model="ss.fristName">
 	 			名<input type="text" ng-model="ss.lastName">
-	 			<!-- <p>{{ ss.firstName + ", " + ss.lastName}}</p> -->
+	 		    <p>{{ ss.firstName + ", " + ss.lastName}}</p>
 	 			<p>{{ fullname() }}</p>
-	 		</div>
+	 		</div> --> 
+	 		<p>AngularJS 过滤器</p>
+	 		<!-- <div ng-app="" ng-controller="aa">
+	 			姓<input type="text" ng-model="ss.fristName">
+	 			名<input type="text" ng-model="ss.lastName">
+	 			<p>{{ ss.firstName + ", " + ss.lastName}}</p>
+	 			<p>{{ ss.fristName | uppercase }}</p>
+	 		</div> -->
+	 		<!-- <div ng-app="" ng-controller="price">
+	 			单价<input type="text" ng-model="q">
+	 			数量<input type="text" ng-model="n">
+	 			<p>{{ q*n | currency }}</p>
+	 		</div> -->
+			<!-- <div ng-app="" ng-controller="namesController">
+				<ul>
+					<li ng-repeat="x in names">
+						{{ x.name + ", " + x.job }}
+					</li>
+				</ul>
+			</div> -->
+			<div ng-app="" ng-controller="namesController">
+				<label>输入搜索条件：</label>
+				<input type="text" ng-model="name">
+				<ul>
+					<li ng-repeat="x in names | filter:name | orderBy:'job'">
+						{{ (x.name | uppercase) + ", " + x.job }}
+					</li>
+				</ul>
+			</div>
 	 		<script type="text/javascript">
-	 			function aa($scope){
-	 				$scope.ss={
-	 					fristName: "xia",
-	 					lastName: "qing",
-	 				}
-	 				$scope.fullname = function(){
-	 					var x
-	 					x = $scope.ss;
-	 					return x.fristName + ", " + x.lastName;
-	 				};
+	 			function namesController($scope){
+	 				$scope.names=[
+	 					{name:'xia',job:'xx'},
+	 					{name:'wang',job:'www'},
+	 					{name:'huang',job:'hhh'},
+	 				]
 	 			}
 	 		</script>
 	 		<script src="js/angular.js"></script>
