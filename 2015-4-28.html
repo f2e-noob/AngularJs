@@ -23,7 +23,9 @@
 		 			<tr ng-repeat="user in users">
 		 				<td>{{ user.lName }}</td>
 		 				<td>{{ user.fName }}</td>
-		 				<td><button class="btn-sm btn btn-primary" ng-click="editUser(user.id)" data-toggle="modal" data-target="#myModal"><i class="icon-pencil"></i> 编辑</button></td>
+		 				<td><button class="btn-sm btn btn-primary" ng-click="click($event)" data-toggle="modal" data-target="#myModal"><i class="icon-pencil"></i> 编辑</button>
+		 				<button class="btn-sm btn btn-danger" ng-click="remove()"><i class="icon-trash"></i> 删除</button>
+		 				</td>
 		 			</tr>
 		 		</tbody>
 		 	</table>
@@ -60,16 +62,18 @@
 			<script type="text/javascript">
 				function userController($scope) {
 					$scope.users = [
-					    {id:1, fName:'Hege'  , lName:"Pege" },
-					    {id:2, fName:'Kim'   , lName:"Pim" },
-					    {id:3, fName:'Jack'  , lName:"Jones" }
+					    {fName:'Hege'  , lName:"Pege" },
+					    {fName:'Kim'   , lName:"Pim" },
+					    {fName:'Jack'  , lName:"Jones" }
 					];
-					
-					$scope.editUser = function(id){
-						$scope.fName = $scope.users[id-1].fName;
-			       		$scope.lName = $scope.users[id-1].lName;        
+					$scope.click=function(){ 
+						$scope.fName = $scope.users.fName;
+			       		$scope.lName = $scope.users.lName;        
 					}
-				}
+					$scope.remove=function(){ 
+						$scope.users;
+					}
+				}	 
 			</script>
 			<!--<script type="text/javascript" src="js/myCtrl.js"></script>-->
 		</div>
