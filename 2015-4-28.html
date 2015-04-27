@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+	<head>
+		<meta charset="UTF-8">
+		<link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+		<link href="css/fontawesome.css" type="text/css" rel="stylesheet">
+		<link href="css/style.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	</head>
+	<body ng-controller="userController">
+		<div class="container">
+			<h2>用户列表</h2>
+		 	<table class="table table-striped">
+		 		<thead>
+		 			<tr>
+		 				<th>姓</th>
+			 			<th>名</th>
+			 			<th>编辑</th>
+		 			</tr>
+		 		</thead>
+		 		<tbody>
+		 			<tr ng-repeat="user in users">
+		 				<td>{{ user.lName }}</td>
+		 				<td>{{ user.fName }}</td>
+		 				<td><button class="btn-sm btn btn-primary" ng-click="editUser(user.id)" data-toggle="modal" data-target="#myModal"><i class="icon-pencil"></i> 编辑</button></td>
+		 			</tr>
+		 		</tbody>
+		 	</table>
+		 	<hr>
+		 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-body">
+			      	<h3 ng-hide="edit">编辑用户:</h3>
+		        	<form class="form-horizontal">
+				 		<div class="form-group">
+				 			<label class="col-sm-2 control-label">名:</label>
+				 			<div class="col-sm-10">
+				 				<input type="text" ng-model="fName"  placeholder="名"></div>
+				 		</div>
+				 		<div class="form-group">
+				 			<label class="col-sm-2 control-label">姓:</label>
+				 			<div class="col-sm-10">
+				 				<input type="text" ng-model="lName" placeholder="姓"></div>
+				 		</div>
+				 	</form>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">关闭<button>
+			        <button type="button" class="btn btn-primary">确定</button>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+
+		 	
+		 	
+			<script type="text/javascript" src="js/angular.js"></script>
+			<script type="text/javascript">
+				function userController($scope) {
+					$scope.users = [
+					    {id:1, fName:'Hege'  , lName:"Pege" },
+					    {id:2, fName:'Kim'   , lName:"Pim" },
+					    {id:3, fName:'Jack'  , lName:"Jones" }
+					];
+					
+					$scope.editUser = function(id){
+						$scope.fName = $scope.users[id-1].fName;
+			       		$scope.lName = $scope.users[id-1].lName;        
+					}
+				}
+			</script>
+			<!--<script type="text/javascript" src="js/myCtrl.js"></script>-->
+		</div>
+	</body>
+</html>
+ 
