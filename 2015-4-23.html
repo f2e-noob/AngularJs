@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="customInterpolationApp">
+	<head>
+		<meta charset="UTF-8">
+		<link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+		<link href="css/style.css" type="text/css" rel="stylesheet">
+		<script src="js/angular.js"></script>
+	<body>
+		<div class="container">
+	 		<p>AngularJS 控制器</p>
+	 		<div ng-controller="DemoController">
+				姓<input type="text" ng-model="person.firstName">
+	 			名<input type="text" ng-model="person.lastName">
+	 			<p>// person.firstName + ", " + person.lastName //</p>
+	 		</div>
+	 		<script type="text/javascript">
+		  		var customInterpolationApp = angular.module('customInterpolationApp', []);
+		 
+				customInterpolationApp.config(function($interpolateProvider) {
+						  
+	 		 	  $interpolateProvider.startSymbol('//');
+				  $interpolateProvider.endSymbol('//');
+				});
+			 	
+			 	function DemoController($scope){
+ 		 		$scope.person = {
+	 		 			firstName:"xia",
+	 		 			lastName:"qing"
+	 		 		}
+	 		 	};		
+				 
+				customInterpolationApp.controller('DemoController', function DemoController() {
+				    this.label = "This bindings is brought you you by // interpolation symbols.";
+				});
+		  </script> 
+	 		
+		</div>
+	</body>
+</html>
+ 
